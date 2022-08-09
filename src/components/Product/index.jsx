@@ -1,6 +1,6 @@
-import React, {useEffect} from "react"
+import React, { useEffect } from "react"
 import { Link } from "react-router-dom";
-import {useDispatch} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from "../../redux/actions/product-actions";
 
 
@@ -8,29 +8,41 @@ import { getProducts } from "../../redux/actions/product-actions";
 const ProductComponent = () => {
 
   const dispatch = useDispatch();
-// get product details from redux action
-  useEffect(() => { 
+  let { products } = useSelector(state => state.getProducts); // destructure
+  //const { products } = allProducts;
+  const { title, image, price, description } = products
+  console.log("API store data from redux thunk===>:", products)
+  // get product details from redux action
+  useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
-  
+
   return (
     <>
-      <div className="four wide column" >
-        <Link to={`/product-detail/`}>
-          <div className="ui link cards">
-            <div className="card">
-              <div className="image">
-                <img src='' alt="hello" />
-              </div>
-              <div className="content">
-                <div className="header">"hello"</div>
-                <div className="meta price">$ ttt</div>
-                <div className="meta">IT</div>
-              </div>
+      {
+        products.length === 0 ? 'Loading...': 
+        products.map((item) => {
+          return (
+            <div className="four wide column" key={item.id} >
+              <Link to={`/product-detail/${item.id}`}>
+                <div className="ui link cards">
+                  <div className="card">
+                    <div className="image">
+                      <img src={item.image} alt="hello" />
+                    </div>
+                    <div className="content">
+                      <div className="header">{item.title}</div>
+                      <div className="meta price">$ {item.price}</div>
+                      <div className="meta">{item.category}</div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
             </div>
-          </div>
-        </Link>
-      </div>
+          )
+        })
+      }
+
     </>
 
   )
