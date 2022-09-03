@@ -8,7 +8,7 @@ import { getProducts } from "../../redux/actions/product-actions";
 const ProductComponent = () => {
 
   const dispatch = useDispatch();
-  let { products } = useSelector(state => state.getProducts); // destructure
+  let { products } = useSelector(state => state.allProducts); // destructure
   //const { products } = allProducts;
   const { title, image, price, description } = products
   console.log("API store data from redux thunk===>:", products)
