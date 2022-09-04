@@ -2,6 +2,7 @@ import React, { useEffect } from "react"
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from "../../redux/actions/product-actions";
+import Loader from "../Loader";
 
 
 // main component
@@ -20,7 +21,7 @@ const ProductComponent = () => {
   return (
     <>
       {
-        products.length === 0 ? 'Loading...': 
+        products.length === 0 ? (<Loader/>): 
         products.map((item) => {
           return (
             <div className="four wide column" key={item.id} >

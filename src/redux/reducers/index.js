@@ -3,7 +3,7 @@ import {getProductReducer, selectedProductReducer } from "./product-reducer";
 
 const reducers = combineReducers({
   allProducts: getProductReducer,
-  selectProduct: selectedProductReducer,
+  product: selectedProductReducer,
 });
 
 export default reducers;

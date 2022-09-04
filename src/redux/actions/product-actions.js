@@ -27,3 +27,10 @@ export const getProductById = (id) => async (dispatch) => {
       console.log('Error==========>:', err.message)
    }
 };
+
+// remove seleted product
+export const removeSelectedProduct = () => { 
+   return {
+      type: ActionTypes.REMOVE_SELECTED_PRODUCT
+   }
+};

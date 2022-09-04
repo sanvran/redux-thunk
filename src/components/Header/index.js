@@ -1,30 +1,31 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
    return (
       <>
-         <div class="ui attached stackable menu">
-            <div class="ui container">
-               <a class="item">
-                  <i class="home icon"></i> Home
+         <div className="ui attached stackable menu">
+            <div className="ui container">
+               <Link to='/' className="item">
+                  <i className="home icon"></i> Home
+               </Link>
+               <a className="item">
+                  <i className="grid layout icon"></i> Products
                </a>
-               <a class="item">
-                  <i class="grid layout icon"></i> Browse
+               <a className="item">
+                  <i className="mail icon"></i> Cart
                </a>
-               <a class="item">
-                  <i class="mail icon"></i> Messages
-               </a>
-               <div class="ui simple dropdown item">
+               <div className="ui simple dropdown item">
                   More
-                  <i class="dropdown icon"></i>
-                  <div class="menu">
-                     <a class="item"><i class="edit icon"></i> Edit Profile</a>
-                     <a class="item"><i class="globe icon"></i> Choose Language</a>
-                     <a class="item"><i class="settings icon"></i> Account Settings</a>
+                  <i className="dropdown icon"></i>
+                  <div className="menu">
+                     <a className="item"><i className="edit icon"></i> Edit Profile</a>
+                     <a className="item"><i className="globe icon"></i> Choose Language</a>
+                     <a className="item"><i className="settings icon"></i> Account Settings</a>
                   </div>
                </div>
-               <div class="right item">
-                  <div class="ui input"><input type="text" placeholder="Search..." /></div>
+               <div className="right item">
+                  <div className="ui input"><input type="text" placeholder="Search..." /></div>
                </div>
             </div>
          </div>

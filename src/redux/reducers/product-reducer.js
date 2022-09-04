@@ -15,15 +15,15 @@ export const getProductReducer = (state = initialState, action) => {  // after d
 };
 
 // get selected product reducer
-let productInital = {
-   product: {}
-};
-export const selectedProductReducer = (state = productInital, action) => {
-   switch (action.type) {
+/* let productInital = { product: {} }; */
+export const selectedProductReducer = (state = {}, { type, payload }) => {
+   switch (type) {
       case ActionTypes.GET_SELECTED_PRODUCT:
-         return { product: action.payload }
+         return { ...state, ...payload }
       case ActionTypes.GET_SELECTED_PRODUCT_FAIL:
-         return { err: action.payload }
+         return { err: payload }
+      case ActionTypes.REMOVE_SELECTED_PRODUCT:
+         return {}
       default:
          return state;
    }

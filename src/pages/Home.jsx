@@ -7,8 +7,8 @@ import ProductListing from './Products/ProductListing'
 const Home = () => {
   return (
      <>
-        {/* <Header /> */}
-        <Header1 />
+        <Header />
+        {/* <Header1 /> */}
         <ProductListing />
      </>
   )
