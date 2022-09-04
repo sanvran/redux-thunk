@@ -9,12 +9,16 @@ const Header = () => {
                <Link to='/' className="item">
                   <i className="home icon"></i> Home
                </Link>
-               <a className="item">
-                  <i className="grid layout icon"></i> Products
-               </a>
-               <a className="item">
-                  <i className="mail icon"></i> Cart
-               </a>
+              
+               <Link to="/todo" className="item">
+                  <i className="mail icon"></i> Todo do
+               </Link>
+               <Link to="/contact" className="item">
+                  <i className="grid layout icon"></i> Contact us
+               </Link>
+               <Link to='/auth/login' className="item">
+                  <i className="lock icon"></i> Login
+               </Link>
                <div className="ui simple dropdown item">
                   More
                   <i className="dropdown icon"></i>

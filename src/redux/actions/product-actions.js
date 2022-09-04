@@ -21,10 +21,10 @@ export const getProductById = (id) => async (dispatch) => {
       const endPoint = `${apiBaseUrl}/products/${id}`
       const { data } = await axios.get(endPoint); // obj.data | { data} = obj here
       dispatch({ type: ActionTypes.GET_SELECTED_PRODUCT, payload: data });
-      console.log("API selected prod======>:", data);
+      // console.log("API selected prod======>:", data);
    } catch (err) {
       dispatch({ type: ActionTypes.GET_SELECTED_PRODUCT_FAIL, payload: err.message })
-      console.log('Error==========>:', err.message)
+      // console.log('Error==========>:', err.message)
    }
 };
 

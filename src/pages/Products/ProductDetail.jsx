@@ -42,11 +42,11 @@ const ProductDetail = () => {
                      <p>{description}</p>
                      <div className="ui vertical animated button" tabIndex="0">
                         
-                        <div class="ui labeled button" tabindex="0">
-                           <div class="ui red button">
+                        <div className="ui labeled button" tabIndex="0">
+                           <div className="ui red button">
                            <i className="shop icon"></i> Add to Cart
                            </div>
-                           <a class="ui basic red left pointing label">
+                           <a className="ui basic red left pointing label">
                               $ {price}
                            </a>
                         </div>
@@ -58,6 +58,7 @@ const ProductDetail = () => {
 
       )
    };
+   console.log("secure only login user access")
 
    return (
       <>

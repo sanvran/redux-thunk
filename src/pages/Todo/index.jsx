@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
+import Header from '../../components/Header';
 import List from '../../components/List';
 
 //geting data from local storage
@@ -51,23 +52,26 @@ const AddToDo = () => {
 
 
    return (
-      <div className="container my-5">
-         <h3>Todo app</h3>
-         <form>
-            <div className="row">
-               <div className="col-md-6">
-                  <input type="text" className="form-control"
-                     value={title}
-                     onChange={(e) => setTitle(e.target.value)}
-                  />
-                  <button type="submit" onClick={handleAddItem} className="btn btn-primary mt-2">Add</button>
-                  <List items={items} removeItem={removeItem} removeAll={removeAll} />
-               </div>
+      <>
+         <Header />
+         <div className="container my-5">
+            <h3>Todo app</h3>
+            <form>
+               <div className="row">
+                  <div className="col-md-6">
+                     <input type="text" className="form-control"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                     />
+                     <button type="submit" onClick={handleAddItem} className="btn btn-primary mt-2">Add</button>
+                     <List items={items} removeItem={removeItem} removeAll={removeAll} />
+                  </div>
 
-            </div>
-         </form>
-      </div>
+               </div>
+            </form>
+         </div>
+      </>
    )
-}
+};
 
 export default AddToDo
