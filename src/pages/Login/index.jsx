@@ -1,24 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import Loader from '../../components/Loader'
 import { userLogin } from '../../redux/actions/login-action'
 
 
 const Login = () => {
-
+   const loggedIn = JSON.parse(sessionStorage.getItem('user'));
    const [username, setUsername] = useState('')
    const [password, setPassword] = useState('')
    const navigate = useNavigate()
    const dispatch = useDispatch()
-   const { loading, isAuth, err } = useSelector(state => state.user);
-   console.log("isauth==>", isAuth)
+   const { loading, isAuth, err, user} = useSelector(state => state.user);
+   // console.log("isauth==>", isAuth, user)
+   
    const submitUserLogin = (e) => {
       e.preventDefault();
       dispatch(userLogin(username, password));
    };
 
-   // useEffect()
+
+
+   useEffect(() => { 
+      if (isAuth) return navigate('/')
+   }, [isAuth]);
+
+   // console.log("on=======>", isAuth)
 
    return (
       <>
@@ -30,7 +37,7 @@ const Login = () => {
                         <p style={{ color: 'red' }}>{err} </p>
                         <div className="field">
                            <label>username</label>
-                           <input type="text" name="username" placeholder="username id"
+                           <input type="text" name="username" placeholder="Username"
                               value={username}
                               onChange={(e) => setUsername(e.target.value)}
                            />

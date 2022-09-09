@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
+import { Navigate, useNavigate } from 'react-router-dom';
 import Header from '../../components/Header';
 import List from '../../components/List';
 
@@ -16,7 +17,7 @@ const getItemsData = () => {
 
 // main page
 const AddToDo = () => {
-
+   const navigate = useNavigate();
    const [title, setTitle] = useState('')
    const [items, setItems] = useState(getItemsData());
 

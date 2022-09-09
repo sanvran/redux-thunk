@@ -17,7 +17,7 @@ const ProductComponent = () => {
 	useEffect(() => {
 		dispatch(getProducts());
 		if (err) { alert(err) };
-	}, [dispatch, err]);
+	}, [err]);
 
 	return (
 		<>

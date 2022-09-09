@@ -107,5 +107,11 @@ It import from react-redux
    const dispatch = useDispatch();
    dispatch: dispatch take an action
 
+-------Project progress-----------------
+Adding protected route.
+1. In ProctectedRoute {auth} status based on user status
+   a. {auth, component: Component, ...rest}
+
+
 
 

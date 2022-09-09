@@ -7,12 +7,19 @@ export const userLogin = (username, password) => async (dispatch) => {
    try {
       dispatch({ type: ActionTypes.LOGIN_REQUEST });
       // const config = { headers: { 'Content-Type': 'application', 'Accept': 'application/json' } };
-      console.log("recvd===>",username, password)
       const res = await axios.post(endPoint, { username, password });
-      dispatch({ type: ActionTypes.LOGIN_SUCCESS, payload: res.data });
-      console.log("api login action========>", res.data)
+      dispatch({
+         type: ActionTypes.LOGIN_SUCCESS,
+         payload: res.data
+      });
+      // console.log("api login action========>", res.data)
    } catch (err) {
       dispatch({ type: ActionTypes.LOGIN_FAILURE, payload: err.response.data});
-      console.log('Error==========>:', err)
+      // console.log('Error==========>:', err)
    }
+};
+
+export const actionLogOut = () => async (dispatch) => { 
+   dispatch({ type: ActionTypes.LOGOUT_SUCCESS, payload: null })
+   // console.log("response logout")
 };
