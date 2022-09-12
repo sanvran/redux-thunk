@@ -5,13 +5,11 @@ import ProductComponent from '../components/Product'
 import ProductListing from './Products/ProductListing'
 
 const Home = () => {
-  return (
-     <>
-        <Header />
-        {/* <Header1 /> */}
-        <ProductListing />
-     </>
-  )
-}
+   return (
+      <>
+         <ProductListing />
+      </>
+   )
+};
 
 export default Home

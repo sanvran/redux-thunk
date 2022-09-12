@@ -62,7 +62,6 @@ const ProductDetail = () => {
 
    return (
       <>
-         <Header/>
          <div className='main__container container'>
             {
                Object.keys(product).length === 0 ? (

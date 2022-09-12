@@ -1,6 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Navigate, Route, Routes } from 'react-router-dom'
+import Layout from '../components/Layout'
+import Main from '../components/Layout'
 import Private from '../components/Protected/Private'
 import ProtectedRoute from '../components/Protected/_ProtectedRoute'
 import Contact from '../pages/Contact'
@@ -16,14 +18,21 @@ const Router = () => {
    return (
       <>
          <Routes>
-
-            <Route path="/" element={isAuth ? <Home /> : <Navigate to="/auth/login" />} />
-            <Route path="/auth/login" element={<Login />} />
-            <Route path="/product-detail/:productId" element={<ProductDetail />} />
+            <Route path="/" element={
+               // isAuth ?
+                  <Layout />
+                  // : <Navigate to="/auth/login" />
+            } >
+               <Route index element={<Home />} />
+               <Route path="/auth/login" element={<Login />} />
+               <Route path="/contact" element={<Contact />} />
+               <Route path="/product-detail/:productId" element={<ProductDetail />} />
+            </Route>
 
             {/* Protected route start here*/}
-            <Route path="/todo" element={<Private><AddToDo /></Private>} />
-            <Route path="/contact" element={<Contact />} />
+            <Route>
+               <Route path="/todo" element={<Private><AddToDo /></Private>} />
+            </Route>
 
             <Route path="*" element={<h2>Not found</h2>} />
 
