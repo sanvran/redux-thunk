@@ -31,14 +31,14 @@ const Login = () => {
 
    const submitUserLogin = (e) => {
       e.preventDefault();
-        // if button enabled with JS hack
-        const v1 = NAME_RGX.test(username);
-        const v2 = PSWD_RGX.test(password);
-        if (!v1 || !v2) {
-           setErrMsg("Invalid Entry");
-           alert(errMsg)
-            return;
-        }
+      // if button enabled with JS hack
+      const v1 = NAME_RGX.test(username);
+      const v2 = PSWD_RGX.test(password);
+      /* if (!v1 || !v2) {
+         setErrMsg("Invalid Entry");
+         alert(errMsg)
+         return;
+      } */
       dispatch(userLogin(username, password));
       errRef.current.focus();
    };
@@ -85,7 +85,7 @@ const Login = () => {
                               {validNameFocus && username && !validName ? (<p className='text-danger'>4 to 24 characters.<br />
                                  Must begin with a letter.<br />
                                  Letters, numbers, underscores, hyphens allowed.</p>) : ('')}
-                              {errMsg ? 'Invalid Entry': ''}
+                              {errMsg ? 'Invalid Entry' : ''}
                            </div>
                            <div className="field">
                               <label>Password</label>
@@ -106,11 +106,17 @@ const Login = () => {
                                  <label>I agree to the Terms and Conditions</label>
                               </div>
                            </div>
-                           <button className="ui button" disabled={!validName || !passwordMatch ? true : false} type="submit">Submit</button>
+                           <button className="ui button" disabled={
+                              !validName
+                              // ||
+                              // !passwordMatch
+                              ? true : false} type="submit">
+                              Submit
+                           </button>
                         </form>
                      </>
                   </div>
-                  
+
                </div>
             )
 
