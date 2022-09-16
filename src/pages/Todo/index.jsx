@@ -65,7 +65,7 @@ const AddToDo = () => {
                         onChange={(e) => setTitle(e.target.value)}
                      />
                      <button type="submit" onClick={handleAddItem} className="btn btn-primary mt-2">Add</button>
-                     <List items={items} removeItem={removeItem} removeAll={removeAll} />
+                     <List items={items} setNewItem={setItems} removeItem={removeItem} removeAll={removeAll} />
                   </div>
 
                </div>
